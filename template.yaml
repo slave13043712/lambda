@@ -1,0 +1,12 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: Simple lambda
+Resources:
+  HelloFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: org.aakimov.lambda.HelloWorldHandler::handle
+      Runtime: java8
+      CodeUri: ./target/lambda-1.0.jar
+      Policies: AmazonDynamoDBReadOnlyAccess
+      Timeout: 30
